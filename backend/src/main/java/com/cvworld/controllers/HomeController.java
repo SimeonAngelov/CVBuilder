@@ -1,10 +1,8 @@
 package com.cvworld.controllers;
 
-import com.cvworld.dao.ArticleRepository;
-import com.cvworld.dao.BasicProfileInfoRepo;
-import com.cvworld.dao.DataServices;
-import com.cvworld.dao.UserRepository;
+import com.cvworld.dao.*;
 import com.cvworld.model.BasicProfileInfo;
+import com.cvworld.model.CvResources;
 import com.cvworld.model.User;
 import com.cvworld.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +16,7 @@ import javax.servlet.Registration;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,7 +25,8 @@ public class HomeController {
     private ArticleRepository data;
 
 
-
+    @Autowired
+    private CvRepo repo;
     @Autowired
     BasicProfileInfoRepo rep;
 
@@ -48,9 +48,38 @@ public class HomeController {
     }
 
 
+
+
     @GetMapping("/info")
     public String userInfo(HttpSession session) {
         return "user";
     }
+    @GetMapping("/profile")
+    public String getPersonal(HttpSession session,Model model){
+        if(session.getAttribute("user")!=null) {
+            User user = (User) session.getAttribute("user");
+            List<CvResources> rp = (List<CvResources>) repo.findAll();
+            List<CvResources> useronli = new ArrayList<>();
+            for (CvResources r : rp) {
+                if (r.getAddress().indexOf(user.getEmail()) != -1) {
+                    useronli.add(r);
+
+
+                }
+                model.addAttribute("listpdf", useronli);
+            }
+        }
+        return "profile";
+    }
+    @GetMapping("/about")
+    public String getInfo(){
+
+        return "about";
+    }
+
+//    @GetMapping("/cv")
+//    public String cv(){
+//        return "cv-builder";
+//    }
 
 }

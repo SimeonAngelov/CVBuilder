@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>CV World</title>
 		<meta charset="utf-8" />
@@ -40,74 +40,96 @@
 				</div>
 
 			<!-- Main -->
-				<div id="main-wrapper">
-					<div class="container">
-						<div class="row gtr-200">
-							<div class="col-8 col-12-medium">
-								<div id="content">
+			<form action="#" th:action="@{/docv}"   method="post" enctype="multipart/form-data" >
+					<table>
+						<div id="main-wrapper" th:object="${user}"  >
+						<tr>
+							<td>firstname :</td>
+							<td><input type="text"  th:field="*{firstName}"/></td>
+						</tr>
+						<tr>
+							<td>last name :</td>
+							<td><input type="text"  th:field="*{lastName}"/></td>
+						</tr>
+						<tr>
+							<td>date of birth :</td>
+							<td><input type="date"  th:field="*{birthDate}"/></td>
+						</tr>
+						<tr>
+							<td>github :</td>
+							<td><input type="text"  th:field="*{github}"/></td>
+						</tr>
+						<tr>
+						<td>linked in :</td>
+						<td><input type="text"  th:field="*{linkedIn}"/></td>
+					</tr>
+						<tr>
+							<td>phone number :</td>
+							<td><input type="text"  th:field="*{phoneNumber}"/></td>
+						</tr>
+						<tr>
+							<td>objective  :</td>
+							<td><input type="text" style="width: 700px; height: 240px"  th:field="*{objective}"/></td>
+						</tr>
+						</div>
 
-									<!-- Content -->
-										<article>
+						<div th:object="${university}">
+						<tr>
+							<td>University  :</td>
+							<td><input type="text" style="width: 700px; height: 240px"  th:field="*{degree}"/></td>
+						</tr>
 
-											<h2>Right Sidebar</h2>
 
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam lorem ipsum dolor sit amet nullam.</p>
+					</div>
+						<div th:object="${hobby}">
+							<tr>
+								<td>What is your hobby's  :</td>
+								<td><input type="text" style="width: 700px; height: 240px"  th:field="*{name}"/></td>
+							</tr>
 
-											<h3>More intriguing information</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-											justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-											ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-											vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-											Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-											rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-											Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-											Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
 
-											<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-											quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-											Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-											fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-											Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-											Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+						</div>
+						<div th:object="${expirience}">
+							<tr>
+								<td>Explain your working experience  :</td>
+								<td><input type="text" style="width: 700px; height: 240px"  th:field="*{Explained}"/></td>
+							</tr>
+						</div>
+							<div >
+							<tr>
+								<td>
+									<input type="file" name="image" multiple="multiple"/>
 
-										</article>
-
-								</div>
+								</td>
+							</tr>
 							</div>
-							<div class="col-4 col-12-medium">
-								<div id="sidebar">
+
+
+
+
+						<!--<tr>-->
+							<!--<td>lastname:</td>-->
+							<!--<td><input type="password" th:field="*{user.lastname}" /></td>-->
+
+						<!--</tr>-->
+
+					</table>
+				<input  type="submit"/>
+			</form>
+
+
 
 									<!-- Sidebar -->
-										<section>
-											<h3>Subheading</h3>
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam.</p>
-											<footer>
-												<a href="#" class="button icon fa-info-circle">Find out more</a>
-											</footer>
-										</section>
+										<!--<section>-->
+											<!--<h3>There you can build your cv </h3>-->
 
-										<section>
-											<h3>Subheading</h3>
-											<ul class="style2">
-												<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-												<li><a href="#">Ornare in hendrerit in lectus</a></li>
-												<li><a href="#">Semper mod quis eget mi dolore</a></li>
-												<li><a href="#">Quam turpis feugiat sit dolor</a></li>
-												<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-												<li><a href="#">Semper mod quisturpis nisi</a></li>
-											</ul>
-										</section>
+											<!--<footer>-->
+												<!--<a href="#" class="button icon fa-info-circle">Build</a>-->
+											<!--</footer>-->
+										<!--</section>-->
 
-								</div>
-							</div>
-						</div>
-					</div>
+
+
 				</div>
 
 			<!-- Footer -->

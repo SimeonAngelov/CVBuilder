@@ -1,5 +1,7 @@
 package com.cvworld.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -8,6 +10,7 @@ import java.util.Date;
 public abstract class BasicProfileInfo extends BasicInfo{
    // private String middleName;
   //  private String familyName;
+   @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     private String phoneNumber;
     //private String email;

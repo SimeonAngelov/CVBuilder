@@ -39,7 +39,7 @@
 					<li><a href="login">Login/Registration</a></li>
 					<li><a href="profile">Profile</a></li>
 					<!-- <li><a href="right-sidebar.html">Right Sidebar</a></li> -->
-					<li class="current"><a href="no-sidebar.html">Login</a></li>
+					<!--<li class="current"><a href="no-sidebar.html">Login</a></li>-->
 				</ul>
 			</nav>
 
@@ -78,9 +78,14 @@
 					<form action="#" th:action="@{/dologin}" th:object="${user}" method="post">
 						<div th:if="${session.user}">
 							<div>Welcome, Guest</div>
+
+
+                            <p th:text="${session.user.getRole()}"></p>
 							<a href="/logout">Log out</a><br>
 						</div>
 						<div th:unless="${session.user}">
+                            <!--<p ></p>-->
+
 							<table>
 								<tr>
 									<td>Username:</td>
@@ -94,6 +99,7 @@
 								</tr>
 								<tr>
 									<td><button type="submit">Submit</button></td>
+									<!--<p th:text="${user.getRole()}"></p>-->
 								</tr>
 							</table>
 
@@ -116,46 +122,18 @@
 			<div class="col-3 col-6-medium col-12-small">
 
 				<!-- Links -->
-				<section class="widget links">
-					<h3>Random Stuff</h3>
-					<ul class="style2">
-						<li><a href="#">Etiam feugiat condimentum</a></li>
-						<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-						<li><a href="#">Sed porttitor cras in erat nec</a></li>
-						<li><a href="#">Felis varius pellentesque potenti</a></li>
-						<li><a href="#">Nullam scelerisque blandit leo</a></li>
-					</ul>
-				</section>
+				<div class="col-3 col-6-medium col-12-small">
 
-			</div>
-			<div class="col-3 col-6-medium col-12-small">
+					<!-- Links -->
+					<section class="widget links">
+						<h3>About us</h3>
+						<ul class="style2">
+							<li><a href="/about">About cv builder</a></li>
 
-				<!-- Links -->
-				<section class="widget links">
-					<h3>Random Stuff</h3>
-					<ul class="style2">
-						<li><a href="#">Etiam feugiat condimentum</a></li>
-						<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-						<li><a href="#">Sed porttitor cras in erat nec</a></li>
-						<li><a href="#">Felis varius pellentesque potenti</a></li>
-						<li><a href="#">Nullam scelerisque blandit leo</a></li>
-					</ul>
-				</section>
+						</ul>
+					</section>
 
-			</div>
-			<div class="col-3 col-6-medium col-12-small">
-
-				<!-- Links -->
-				<section class="widget links">
-					<h3>Random Stuff</h3>
-					<ul class="style2">
-						<li><a href="#">Etiam feugiat condimentum</a></li>
-						<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-						<li><a href="#">Sed porttitor cras in erat nec</a></li>
-						<li><a href="#">Felis varius pellentesque potenti</a></li>
-						<li><a href="#">Nullam scelerisque blandit leo</a></li>
-					</ul>
-				</section>
+				</div>
 
 			</div>
 			<div class="col-3 col-6-medium col-12-small">
@@ -164,17 +142,12 @@
 				<section class="widget contact">
 					<h3>Contact Us</h3>
 					<ul>
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-					</ul>
-					<p>1234 Fictional Road<br />
-						Nashville, TN 00000<br />
-						(800) 555-0000</p>
-				</section>
 
+					</ul>
+
+
+				</section>
 			</div>
 		</div>
 		<div class="row">

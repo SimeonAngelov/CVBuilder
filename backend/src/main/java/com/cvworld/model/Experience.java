@@ -18,4 +18,13 @@ public class Experience {
     private String responsibilities;
     private Date startingAt;
     private Date endingAt;
+    private String Explained;
+
+    public String getExplained() {
+        return Explained;
+    }
+
+    public void setExplained(String explained) {
+        Explained = explained;
+    }
 }

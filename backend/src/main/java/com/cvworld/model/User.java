@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -15,10 +16,14 @@ public class User  extends BasicProfileInfo{
 //    @ManyToOne
 //
 
-        int id;
+@Id
+        @GeneratedValue
+    int id;
         @NotNull
-        @NotEmpty
-        private String firstName;
+    @NotEmpty
+    private String first_Name;
+
+    private String role;
 
         @NotNull
         @NotEmpty
@@ -34,7 +39,8 @@ public class User  extends BasicProfileInfo{
         @Email
         @NotEmpty
         @Column(unique = true)
-        public  String email;
+       private   String email;
+
 
 
 //    public FieldOfWork getFieldOfWork() {
@@ -45,12 +51,20 @@ public class User  extends BasicProfileInfo{
 //        this.fieldOfWork = fieldOfWork;
 //    }
 
+    public Integer  getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
-        return firstName;
+        return first_Name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first_Name = firstName;
     }
 
     public String getLastName() {
@@ -84,5 +98,14 @@ public class User  extends BasicProfileInfo{
     public void setEmail(String email) {
         this.email = email;
     }
-//TODO regdate
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    //TODO regdate
+
 }

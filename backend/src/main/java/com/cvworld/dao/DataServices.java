@@ -14,7 +14,7 @@ public User isHere(String username){
     User usr=null;
   List<User> users= (List<User>) userrepo.findAll();
   for(User u: users){
-      System.out.println(u.getEmail());
+      System.out.println(u.getFirstName());
       if(u.getEmail().equals(username)){
           usr=u;
       }

@@ -13,4 +13,12 @@ public class Hobby {
     private String name;
     @ManyToOne
     private BasicProfileInfo basicInfo;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
