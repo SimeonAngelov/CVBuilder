@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL USERS</title>
+<table>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.getFirstName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+
+
+        <td>
+
+
+                <a th:href="@{/delete/(email = ${user.getId()} ) }">Delete</a>
+
+        </td>
+    </tr>
+</table>
+</head>
+<body>
+
+</body>
+</html>
